@@ -792,7 +792,7 @@
             return;
         }
 
-        const num = tieneSpa ? "5219981960490" : "5219841862451";
+        const num = tieneSpa ? "5219981960490" : "5219841870476";
         
         let tipoOrden = "ORDEN";
         if (tieneSpa) {
@@ -901,9 +901,9 @@
         // 4. Intención: Recomendaciones o experiencias
         if (cleanInput.includes('experiencias') || cleanInput.includes('sugerenc') || cleanInput.includes('recommend') || cleanInput.includes('romantic dinner') || cleanInput.includes('cena romántica') || cleanInput.includes('aniversary') || cleanInput.includes('aniversario') || cleanInput.includes('special') || cleanInput.includes('birthday') || cleanInput.includes('sorpresa') || cleanInput.includes('surprise') || cleanInput.includes('cumple') || cleanInput.includes('especial')) {
             if (currentLang === 'es') {
-                return "🌟 wao, te recomiendo una cena romántica de 4 tiempos en nuestra Cava o una cena bajo las estrellas en la playa:\n• Mañana: 'Avocado toast Tulum' ($350) o 'Huevos Doña Ana' ($295).\n• Tarde/Noche: 'Tacos de rib eye al carbón' ($495) o una deliciosa 'Hamburguesa artesanal Ana y José' ($545).\n• Coctel: Nuestra icónica 'Mezcalrita' ($355).";
+                return "🌟 Wao!!! Te recomiendo una cena romántica de 4 tiempos en nuestra Cava o una cena bajo las estrellas en la playa:\n• Montaje privado bajo las estrellas. Incluye: Coctel de bienvenida, menú maridaje con Tequila o Mezcal, Botella de vino de la casa, decoración romántica con pétalos y velas. Selección coordinada de entradas, plato fuerte y postre.";
             } else {
-                return "🌟 Wow!!! I recommend a romantic 4-course dinner in our wine cellar or a dinner under the stars on the beach.:\n• Morning: 'Avocado toast Tulum' ($350) or traditional 'Doña Ana eggs' ($295).\n• Lunch/Dinner: 'Charcoal-grilled Rib eye tacos' ($495) or our signature 'Ana & José artisanal burger' ($545).\n• Cocktail: The refreshing 'Mezcalrita' ($355).";
+                return "🌟 Wow!!! I recommend a romantic 4-course dinner in our wine cellar or a dinner under the stars on the beach.:\n• Private setup under the stars. Includes: Welcome cocktail, pairing menu with Tequila or Mezcal, House bottle of wine, romantic decoration with petals and candles.";
             }
         }
          // 4. Intención: Soporte WiFi
@@ -916,7 +916,7 @@
         }
         // 4. Intención: Redirección Dinámica Automática a Concierge/Recepción
         if (cleanInput.includes('concierge') || cleanInput.includes('ayuda') || cleanInput.includes('help') || cleanInput.includes('question') || cleanInput.includes('preguntar')) {
-            const numConcierge = "5219841862451"; 
+            const numConcierge = "5219841870476"; 
             const textoWhatsApp = currentLang === 'es' ? 'Hola, solicito el apoyo de un Concierge por favor.' : 'Hello, I need assistance from a Concierge please.';
             
             // Disparo automático de WhatsApp tras 1 segundo
