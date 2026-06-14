@@ -792,7 +792,7 @@
             return;
         }
 
-        const num = tieneSpa ? "5219981960490" : "5219841870476";
+        const num = tieneSpa ? "5219981960490" : "5219841862451";
         
         let tipoOrden = "ORDEN";
         if (tieneSpa) {
@@ -864,11 +864,20 @@
         const cleanInput = input.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         
         // 1. Intención: Opciones Veganas
+        if (cleanInput.includes('hola') || cleanInput.includes('como estas') || cleanInput.includes('hello') || cleanInput.includes('hola')) {
+            if (currentLang === 'es') {
+                return "🌱 Hola, como estás? Soy tu asistente personal, estoy aquí para ayudarte para que te sientas en casa.";
+            } else {
+                return "🌱 Hi, how are you? I'm your personal assistant, I'm here to help you feel at home..";
+            }
+        }
+
+        // 1. Intención: Opciones Veganas
         if (cleanInput.includes('vegan') || cleanInput.includes('vegetariano') || cleanInput.includes('sin carne')) {
             if (currentLang === 'es') {
-                return "🌱 Contamos con opciones excelentes de origen vegetal, como los 'Tacos de setas al recado negro' ($325) o nuestra exquisita 'Pizza vegetariana del huerto' ($325) y el 'Curry de coco' ($290).";
+                return "✨  Contamos con opciones excelentes de origen vegetal, como los 'Tacos de setas al recado negro' ($325) o nuestra exquisita 'Pizza vegetariana del huerto' ($325) y el 'Curry de coco' ($290).";
             } else {
-                return "🌱 We feature amazing plant-based dishes! Try our 'Recado negro mushroom tacos' ($325), the refreshing 'Vegetarian pizza from our garden' ($325), or the 'Coconut curry' ($290).";
+                return "✨  We feature amazing plant-based dishes! Try our 'Recado negro mushroom tacos' ($325), the refreshing 'Vegetarian pizza from our garden' ($325), or the 'Coconut curry' ($290).";
             }
         }
 
@@ -887,6 +896,14 @@
                 return "🌟 Imperdibles de la Casa:\n• Mañana: 'Avocado toast Tulum' ($350) o 'Huevos Doña Ana' ($295).\n• Tarde/Noche: 'Tacos de rib eye al carbón' ($495) o una deliciosa 'Hamburguesa artesanal Ana y José' ($545).\n• Coctel: Nuestra icónica 'Mezcalrita' ($355).";
             } else {
                 return "🌟 Chef's Recommendations:\n• Morning: 'Avocado toast Tulum' ($350) or traditional 'Doña Ana eggs' ($295).\n• Lunch/Dinner: 'Charcoal-grilled Rib eye tacos' ($495) or our signature 'Ana & José artisanal burger' ($545).\n• Cocktail: The refreshing 'Mezcalrita' ($355).";
+            }
+        }
+            // 3. Intención: Recomendaciones o Hambre
+        if (cleanInput.includes('tour') || cleanInput.includes('boxlunch') || cleanInput.includes('early') || cleanInput.includes('temprano') || cleanInput.includes('sandwich') || cleanInput.includes('fruta') || cleanInput.includes('llevar') || cleanInput.includes('to go') || cleanInput.includes('fruit')) {
+            if (currentLang === 'es') {
+                return "🌟 Hola, si necesita salir temprano de paseo o tour, no se preocupe, le podemos servir un delicioso box lunch para llevar, el cual incluye un sándwich de jamón y queso acompañado de fruta, si lo desea escriba la palabra 'AYUDA' , para comunicarle con su concierge..";
+            } else {
+                return "🌟 Hello, if you need to leave early for a walk or tour, don't worry, we can serve you a delicious box lunch to go, which includes a ham and cheese sandwich accompanied by fruit. If you wish, write the word 'HELP' to put you in touch with your concierge.";
             }
         }
 
