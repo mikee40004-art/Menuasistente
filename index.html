@@ -866,9 +866,9 @@
         // 1. Intención: Opciones Veganas
         if (cleanInput.includes('hola') || cleanInput.includes('como estas') || cleanInput.includes('hello') || cleanInput.includes('hola')) {
             if (currentLang === 'es') {
-                return "🌱 Hola, como estás? Soy tu asistente personal, estoy aquí para ayudarte para que te sientas en casa.";
+                return "🌱 Hola, como estás? Soy tu asistente personal, estoy aquí para ayudarte para que te sientas en casa. Y sí necesitas alguna sugerencia o recomendación para celebrar tus cumpleaños, aniversario o alguna ocasión especial ";
             } else {
-                return "🌱 Hi, how are you? I'm your personal assistant, I'm here to help you feel at home..";
+                return "🌱 Hi, how are you? I'm your personal assistant, I'm here to help you feel at home. And if you need any suggestions or recommendations for celebrating your birthday, anniversary, or any special occasion.";
             }
         }
 
@@ -906,7 +906,14 @@
                 return "🌟 Hello, if you need to leave early for a walk or tour, don't worry, we can serve you a delicious box lunch to go, which includes a ham and cheese sandwich accompanied by fruit. If you wish, write the word 'HELP' to put you in touch with your concierge.";
             }
         }
-
+         // 3. Intención: Recomendaciones o Hambre
+        if (cleanInput.includes('gracias') || cleanInput.includes('thanks') || cleanInput.includes('thank you') || cleanInput.includes('gracias')) {
+            if (currentLang === 'es') {
+                return "🌟 Es un placer poder ayudarte, aqui estaré por si necesitas alguna sugerencia o recomendación.";
+            } else {
+                return "🌟 It's a pleasure to help you; I'll be here if you need any suggestions or recommendations.";
+            }
+        }
         // 4. Intención: Spa & Relajación
         if (cleanInput.includes('spa') || cleanInput.includes('masaje') || cleanInput.includes('massage') || cleanInput.includes('tired') || cleanInput.includes('relax') || cleanInput.includes('cansado') || cleanInput.includes('bienestar')) {
             if (currentLang === 'es') {
