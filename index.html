@@ -11,23 +11,8 @@
         .container { max-width: 800px; margin: auto; background: var(--blanco); min-height: 100vh; position: relative; box-shadow: 0 0 30px rgba(0,0,0,0.05); padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
         
         /* Botones VIP Flotantes con Desenfoque Inteligente y soporte iOS */
-        .vip-experience-bar { position: fixed; bottom: calc(15px + env(safe-area-inset-bottom)); left: 4%; display: flex; gap: 10px; z-index: 2000; width: 76%; max-width: 350px; background: rgba(44, 62, 80, 0.75); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 8px; border-radius: 16px; border: 1px solid var(--oro); box-sizing: border-box; }
+        .vip-experience-bar { position: fixed; bottom: calc(15px + env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 2000; width: 92%; max-width: 450px; background: rgba(44, 62, 80, 0.75); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 8px; border-radius: 16px; border: 1px solid var(--oro); box-sizing: border-box; }
         .btn-vip { flex: 1; background: var(--oscuro); color: white; border: 1px solid var(--oro); padding: 14px 5px; border-radius: 12px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 5px; }
-
-        /* Botón Flotante de IA Inteligente */
-        .ai-chat-toggle { position: fixed; bottom: calc(15px + env(safe-area-inset-bottom)); right: 4%; width: 55px; height: 55px; background: var(--oro); color: white; border-radius: 50%; border: 2px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 2001; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; transition: transform 0.3s; }
-        .ai-chat-toggle:hover { transform: scale(1.1); }
-
-        /* Ventana Emergente del Chat de IA */
-        .ai-window { position: fixed; bottom: calc(85px + env(safe-area-inset-bottom)); right: 4%; width: 92%; max-width: 360px; height: 450px; background: white; border-radius: 16px; border: 1px solid var(--oro); box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 2500; display: none; flex-direction: column; overflow: hidden; font-size: 0.85rem; }
-        .ai-header { background: var(--oscuro); color: white; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--oro); }
-        .ai-messages { flex: 1; padding: 15px; overflow-y: auto; background: #fafaf8; display: flex; flex-direction: column; gap: 10px; }
-        .msg { max-width: 80%; padding: 10px 12px; border-radius: 12px; line-height: 1.4; }
-        .msg.bot { background: #f0ebe1; color: #333; align-self: flex-start; border-top-left-radius: 2px; border-left: 3px solid var(--oro); }
-        .msg.user { background: var(--oscuro); color: white; align-self: flex-end; border-top-right-radius: 2px; }
-        .ai-input-area { padding: 10px; background: white; border-top: 1px solid #eee; display: flex; gap: 8px; }
-        .ai-input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-family: inherit; }
-        .ai-btn-send { background: var(--oscuro); color: white; border: none; padding: 0 15px; border-radius: 8px; font-weight: bold; cursor: pointer; }
 
         .lang-switch { position: absolute; top: 27px; right: 15px; z-index: 1001; background: rgba(255,255,255,0.9); color: var(--oscuro); border: 1px solid var(--oro); padding: 6px 12px; border-radius: 20px; font-weight: bold; cursor: pointer; font-size: 0.7rem; }
         .exchange-banner { background: var(--oscuro); color: white; text-align: center; padding: 6px; font-size: 0.7rem; letter-spacing: 1px; border-bottom: 2px solid var(--oro); }
@@ -65,6 +50,32 @@
         
         .btn-whatsapp { background: #25D366; color: white; border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 1rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .credits { text-align: center; padding: 40px 10px; background: #f4f1ea; }
+
+        /* --- COMPONENTE DE ASISTENTE IA PREMIUM --- */
+        .ai-fab-container { position: fixed; bottom: calc(85px + env(safe-area-inset-bottom)); right: 20px; z-index: 2500; }
+        .ai-btn-trigger { width: 56px; height: 56px; background: var(--oscuro); border: 2px solid var(--oro); border-radius: 50%; color: white; font-size: 1.6rem; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.2s; }
+        .ai-btn-trigger:active { transform: scale(0.9); }
+        
+        .ai-chat-window { position: fixed; bottom: calc(155px + env(safe-area-inset-bottom)); right: 20px; width: 340px; height: 420px; max-height: 70vh; background: var(--blanco); border: 1px solid var(--oro); border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); display: flex; flex-direction: column; overflow: hidden; z-index: 2500; transform: translateY(20px); opacity: 0; pointer-events: none; transition: all 0.3s cubic-bezier(0.1, 0.8, 0.3, 1); }
+        .ai-chat-window.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+        
+        .ai-chat-header { background: var(--oscuro); color: white; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--oro); }
+        .ai-chat-title { font-size: 0.85rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; display: flex; align-items: center; gap: 6px; }
+        .ai-chat-close { background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer; padding: 0 5px; }
+        
+        .ai-chat-messages { flex: 1; overflow-y: auto; padding: 15px; display: flex; flex-direction: column; gap: 10px; background-color: var(--beige); -webkit-overflow-scrolling: touch; }
+        .ai-msg { max-width: 85%; padding: 10px 14px; border-radius: 12px; font-size: 0.85rem; line-height: 1.4; word-wrap: break-word; }
+        .ai-msg.user { background: var(--oro); color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
+        .ai-msg.bot { background: white; color: #333; align-self: flex-start; border-bottom-left-radius: 2px; border: 1px solid #e8e4db; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        
+        .ai-chat-footer { padding: 10px; background: white; border-top: 1px solid #eee; display: flex; gap: 8px; }
+        .ai-chat-input { flex: 1; border: 1px solid #ddd; border-radius: 20px; padding: 8px 15px; font-size: 0.85rem; outline: none; font-family: inherit; }
+        .ai-chat-input:focus { border-color: var(--oro); }
+        .ai-btn-send { background: var(--oscuro); border: none; color: white; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; }
+        
+        @media (max-width: 480px) {
+            .ai-chat-window { right: 10px; left: 10px; width: auto; bottom: calc(145px + env(safe-area-inset-bottom)); }
+        }
     </style>
 </head>
 <body>
@@ -119,18 +130,19 @@
     <button class="btn-vip" onclick="irAExperiencia('Experiencias')">🕯️ Experiencias</button>
 </div>
 
-<button class="ai-chat-toggle" onclick="toggleAIChat()">✨</button>
+<div class="ai-fab-container">
+    <button class="ai-btn-trigger" onclick="toggleAIChat()" id="aiTrigger">✨</button>
+</div>
 
-<div class="ai-window" id="aiWindow">
-    <div class="ai-header">
-        <span style="font-weight: bold; letter-spacing: 1px;" id="aiTitle">AI Concierge ✨</span>
-        <button onclick="toggleAIChat()" style="background: none; border: none; color: white; cursor: pointer; font-size: 1.1rem;">✕</button>
+<div class="ai-chat-window" id="aiChatWindow">
+    <div class="ai-chat-header">
+        <div class="ai-chat-title" id="aiTitle">✨ Concierge IA</div>
+        <button class="ai-chat-close" onclick="toggleAIChat()">✕</button>
     </div>
-    <div class="ai-messages" id="aiMessages">
-        </div>
-    <div class="ai-input-area">
-        <input type="text" class="ai-input" id="aiInput" placeholder="Escribe tu mensaje aquí..." onkeypress="handleAIPress(event)">
-        <button class="ai-btn-send" onclick="sendAIMessage()">></button>
+    <div class="ai-chat-messages" id="aiMessages"></div>
+    <div class="ai-chat-footer">
+        <input type="text" class="ai-chat-input" id="aiInput" placeholder="Pregúntame algo..." onkeypress="handleAIKeyPress(event)">
+        <button class="ai-btn-send" onclick="sendAIMessage()">➔</button>
     </div>
 </div>
 
@@ -138,6 +150,7 @@
     const TIPO_CAMBIO = 18.50;
     let currentLang = 'es';
     let carrito = [];
+    let chatIniciado = false;
 
     const translations = {
         es: {
@@ -149,9 +162,8 @@
             catsID: ["Desayuno", "Lunch", "Cena", "Postre", "Bebidas", "Spa", "Experiencias"],
             cerrado: "CERRADO", soloHorario: "Disponible en su horario",
             errDatos: "⚠️ Por favor ingresa nombre y habitación", errCarrito: "⚠️ Tu canasta está vacía",
-            aiPlaceholder: "Escribe tu deseo o duda aquí...",
-            aiWelcome: "¡Hola! Soy tu asistente inteligente en <strong>Ana y José Tulum</strong>. 🌴<br><br>¿Estás celebrando una ocasión especial (aniversario, cumpleaños, propuesta), tienes dudas sobre los horarios del hotel, la boutique o quieres planear una cena especial en la cava? Escríbeme libremente.",
-            aiFallback: "✨ Entendido. Como tu Concierge virtual, quiero asegurar que tu experiencia sea perfecta. ¿Me podrías dar un poco más de detalles o prefieres que te ponga en contacto directo con nuestro equipo vía WhatsApp?"
+            aiTitle: "✨ Concierge IA", aiPlaceholder: "Pregúntame sobre el menú o spa...",
+            aiWelcome: "¡Hola! Soy tu Concierge de IA. 🌴 ¿Te gustaría alguna recomendación culinaria, conocer opciones veganas, o reservar una experiencia en nuestro Spa?"
         },
         en: {
             finalizar: "Complete Order", nombre: "Name:", hab: "Room Number:", pago: "Payment Method:",
@@ -162,9 +174,8 @@
             catsID: ["Desayuno", "Lunch", "Cena", "Postre", "Bebidas", "Spa", "Experiencias"],
             cerrado: "CLOSED", soloHorario: "Available only during hours",
             errDatos: "⚠️ Please enter name and room number", errCarrito: "⚠️ Your cart is empty",
-            aiPlaceholder: "Write your request or question here...",
-            aiWelcome: "Hello! I am your AI Concierge at <strong>Ana y José Tulum</strong>. 🌴<br><br>Are you celebrating a special occasion (anniversary, birthday, proposal), have questions about hotel hours, the boutique, or want to arrange an intimate dinner in the cellar? Feel free to ask me anything.",
-            aiFallback: "✨ Understood. As your virtual Concierge, I want to ensure your stay is perfect. Could you provide a few more details, or would you prefer I connect you directly with our team via WhatsApp?"
+            aiTitle: "✨ AI Concierge", aiPlaceholder: "Ask me about the menu or spa...",
+            aiWelcome: "Hello! I am your AI Concierge. 🌴 Would you like a culinary recommendation, information on vegan options, or to book a Spa treatment?"
         }
     };
 
@@ -555,7 +566,7 @@
         },
         { 
             n_es: "Pixán", n_en: "Pixán", 
-            p: 2870, d_es: "Pixan signiﬁca (espíritu) en maya y esta terapia regresará tu espíritu y mente a su equilibrio. Masaje enfocado en las estructuras más profundas de los músculos, en el que se utiliza presión media-fuerte con el ﬁn de devolver movilidad a los músculos, liberar toxinas acumuladas en ellos y acelerar la circulación, complementado con la utilización de pindas herbales, las cuales ayudarán a los músculos y la mente a relajarse gracias a sus hierbas y esencias, ayudando a reducir el dolor. 70 Min. Si usted reserva ahora le incluímos una mascarilla refrescante.", 
+            p: 2870, d_es: "Pixan signiﬁca (espíritu) en maya y esta terapia regresará tu espíritu y mente a su equilibrio. Masaje enfocado en las estructuras más profundas de los músculos, en el que se utiliza presión media-fuerte con el fi n de devolver movilidad a los músculos, liberar toxinas acumuladas en ellos y acelerar la circulación, complementado con la utilización de pindas herbales, las cuales ayudarán a los músculos y la mente a relajarse gracias a sus hierbas y esencias, ayudando a reducir el dolor. 70 Min. Si usted reserva ahora le incluímos una mascarilla refrescante.", 
             d_en: "Pixan means (spirit) in Mayan, and this therapy will bring your spirit and mind back into balance. Massage focused on the deepest structures of the muscles, in which medium-strong pressure is used in order to restore mobility to the muscles, release accumulated toxins, and accelerate circulation. This therapy is complemented with the use of herbal pindas, which help the muscles and mind relax thanks to their herbs, essences, and warm temperature, helping to reduce pain. 70 Min. If you book now, we'll include a refreshing face mask.", 
             c: "Spa", img: "https://i.postimg.cc/FKvKjvpr/SAVE-20260517-145341.jpg" 
         },
@@ -603,91 +614,16 @@
         }     
     ];
 
-    /* ========================================================
-       NUEVAS FUNCIONES: MOCKUP DEL ASISTENTE INTELIGENTE (IA)
-       ======================================================== */
-    function toggleAIChat() {
-        const win = document.getElementById('aiWindow');
-        const isOpen = win.style.display === 'flex';
-        win.style.display = isOpen ? 'none' : 'flex';
-        
-        // Si se abre y está vacío, inyectar el mensaje de bienvenida traducido
-        if (!isOpen) {
-            const msgBox = document.getElementById('aiMessages');
-            if (msgBox.children.length <= 0) {
-                msgBox.innerHTML = `<div class="msg bot">${translations[currentLang].aiWelcome}</div>`;
-            }
-        }
-    }
+    const horariosGlobales = {
+        "Desayuno": "7:30 AM - 11:45 AM",
+        "Lunch": "11:30 AM - 6:00 PM",
+        "Cena": "6:00 PM - 10:30 PM",
+        "Postre": "7:30 AM - 10:30 PM",
+        "Bebidas": "7:30 AM - 10:30 PM",
+        "Spa": "9:00 AM - 5:00 PM",
+        "Experiencias": "24h (Previa reserva)"
+    };
 
-    function handleAIPress(e) {
-        if(e.key === 'Enter') sendAIMessage();
-    }
-
-    function sendAIMessage() {
-        const input = document.getElementById('aiInput');
-        const text = input.value.trim();
-        if(!text) return;
-
-        appendMessage(text, 'user');
-        input.value = '';
-
-        setTimeout(() => {
-            const respuesta = procesarIAProvisional(text);
-            appendMessage(respuesta, 'bot');
-        }, 800);
-    }
-
-    function appendMessage(text, sender) {
-        const box = document.getElementById('aiMessages');
-        const msgDiv = document.createElement('div');
-        msgDiv.className = `msg ${sender}`;
-        msgDiv.innerHTML = text;
-        box.appendChild(msgDiv);
-        box.scrollTop = box.scrollHeight;
-    }
-
-    function procesarIAProvisional(text) {
-        const t = text.toLowerCase();
-        
-        if (currentLang === 'es') {
-            if(t.includes('cumpleaños') || t.includes('aniversario') || t.includes('boda') || t.includes('mano') || t.includes('romant') || t.includes('sorprender')) {
-                return "❤️ ¡Qué gran celebración! En Ana y José transformamos ocasiones en recuerdos eternos. Te sugiero nuestro montaje premium en playa <strong>'Juntos por Siempre'</strong>. Incluye cena de 4 tiempos bajo las estrellas y decoración fina con velas. ¿Te gustaría que te redirija a la sección de Experiencias?";
-            }
-            if(t.includes('piscina') || t.includes('alberca') || t.includes('horario') || t.includes('abre') || t.includes('cierra')) {
-                return "🏊‍♂️ ¡Por supuesto! Nuestra piscina infinity frente al mar se encuentra abierta de <strong>8:00 AM a 8:00 PM</strong>. Recuerda que puedes ordenar bebidas y cocteles directo desde nuestra sección de Bebidas.";
-            }
-            if(t.includes('boutique') || t.includes('tienda') || t.includes('comprar') || t.includes('ropa')) {
-                return "🛍️ Sí, contamos con la prestigiada boutique 'Ana y José Style' dentro del hotel, justo a un costado del gym. Su horario de atención es de <strong>11am a 8pm</strong>";
-            }
-            if(t.includes('relaciones') || t.includes('relaciones') || t.includes('paloma') || t.includes('información')) {
-                return "🛍️ Es nuestra chica Hostes, que hostes ni que nada, es nuestra relaciones públicas, ella rebien, es la mejor!!!, ella te apoya con toda la info que necesites, muy re bien, sabes, si quieres te puedo pasar su número de wat para que platiques con ella. Su horario de atención es de <strong>24/7</strong>, siempre dispuesta con toda la actitud, solo con decirte que no duerme, no come no bebe porque está pendiente de cualquier necesidad que requieras.";
-            }
-            if(t.includes('cava') || t.includes('sencillo') || t.includes('cena privada') || t.includes('vino')) {
-                return "🍷 ¡Una elección sumamente sofisticada! Nuestra cava privada es un espacio íntimo. Aunque no está listada de forma estándar, nuestro Concierge puede estructurar una degustación de etiquetas premium a tu medida. ¿Te gustaría enlazar con el equipo?";
-            }
-            return translations.es.aiFallback;
-        } else {
-            // Respuestas en Inglés (AI responses in English)
-            if(t.includes('birthday') || t.includes('anniversary') || t.includes('wedding') || t.includes('proposal') || t.includes('romantic') || t.includes('surprise')) {
-                return "❤️ What a beautiful celebration! At Ana y José, we specialize in creating unforgettable milestones. I highly recommend our premium beach setup <strong>'JUNTOS POR SIEMPRE'</strong> (Together Forever), featuring a 4-course dinner under the stars. Would you like me to take you to our Experience category?";
-            }
-            if(t.includes('pool') || t.includes('hours') || t.includes('open') || t.includes('close')) {
-                return "🏊‍♂️ Of course! Our oceanfront infinity pool is open from <strong>8:00 AM to 8:00 PM</strong>. Keep in mind you can order refreshing cocktails right from the Drinks section.";
-            }
-            if(t.includes('boutique') || t.includes('shop') || t.includes('store') || t.includes('buy')) {
-                return "🛍️ Yes, we feature our exclusive boutique 'Tulum Style' inside the property, right next to the main lobby. It is open from <strong>9:00 AM to 7:00 PM</strong>, offering beautiful local designs and beach luxury wear.";
-            }
-            if(t.includes('cellar') || t.includes('cava') || t.includes('private dinner') || t.includes('wine')) {
-                return "🍷 An exquisite choice! Our private wine cellar is a hidden gem. While not on the standard layout, our Concierge can easily design a custom tasting experience for you. Would you like us to connect you?";
-            }
-            return translations.en.aiFallback;
-        }
-    }
-
-    /* ========================================================
-       LÓGICA OPERATIVA PREVIA (MANTENIDA AL 100%)
-       ======================================================== */
     function toggleLang() {
         currentLang = currentLang === 'es' ? 'en' : 'es';
         updateUI();
@@ -703,14 +639,16 @@
         document.getElementById('optTarjeta').innerText = t.tarjeta;
         document.getElementById('btnText').innerText = t.enviar;
         
-        // Actualizar dinámicamente placeholders e interfaz del chat de IA
+        // Actualización dinámica de etiquetas del Asistente IA
+        document.getElementById('aiTitle').innerText = t.aiTitle;
         document.getElementById('aiInput').placeholder = t.aiPlaceholder;
-        const msgBox = document.getElementById('aiMessages');
-        // Si el chat está abierto o ya tiene el saludo inicial, actualizar el idioma de ese saludo
-        if(msgBox.children.length <= 1) {
-            msgBox.innerHTML = `<div class="msg bot">${t.aiWelcome}</div>`;
-        }
         
+        // Si el chat ya se abrió una vez, actualizamos el mensaje de bienvenida de manera inteligente
+        if (chatIniciado) {
+            const primerMsg = document.querySelector('#aiMessages .ai-msg.bot');
+            if (primerMsg) primerMsg.innerText = t.aiWelcome;
+        }
+
         const nav = document.getElementById('navCats');
         const activeBtn = document.querySelector('.btn-cat.active');
         const activeCat = activeBtn ? activeBtn.getAttribute('data-cat') : 'Desayuno';
@@ -733,7 +671,7 @@
             "Lunch": { inicio: 11.5, fin: 18.0, texto: "11:30 AM - 6:00 PM" },
             "Cena": { inicio: 18.0, fin: 22.5, texto: "6:00 PM - 10:30 PM" },
             "Postre": { inicio: 7.5, fin: 22.5, texto: "7:30 AM - 10:30 PM" },
-            "Bebidas": { inicio: 9.0, fin: 22.5, texto: "9:00 AM - 10:30 PM" },
+            "Bebidas": { inicio: 7.5, fin: 22.5, texto: "7:30 AM - 10:30 PM" },
             "Spa": { inicio: 0, fin: 24, texto: "9:00 AM - 5:00 PM / Pregunte por la promoción del día / Ask about today's special offer." },
             "Experiencias": { inicio: 0, fin: 24, texto: "24h con previa reserva /with prior reservation"},
         };
@@ -761,7 +699,7 @@
                 <div class="card-body">
                     <div class="card-info">
                         <span>${currentLang === 'es' ? p.n_es : p.n_en}</span>
-                        <span class="precio">$${p.p}</span>
+                        <span class="precio">$${p.p.toFixed(2)}</span>
                     </div>
                     <p class="desc">${currentLang === 'es' ? p.d_es : p.d_en}</p>
                     ${estaAbierto ? `
@@ -798,7 +736,7 @@
         lista.innerHTML = `<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; border-bottom: 2px solid #eee; padding-bottom:5px;"><span style="font-weight:bold;">Items:</span><button onclick="carrito=[];renderCarrito()" style="color:red; border:none; background:none; cursor:pointer; font-size:0.75rem;">${t.vaciar}</button></div>` + 
             carrito.map((item, i) => `<div style="display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid #f9f9f9; font-size:0.9rem;">
                 <span style="flex:1;"><strong>${item.nombre}</strong>${item.nota ? `<br><small style="color:var(--oro);">"${item.nota}"</small>` : ''}</span>
-                <span style="white-space:nowrap;">$${item.precio} <button onclick="carrito.splice(${i},1);renderCarrito()" style="border:none;background:none;color:#ccc;padding:0 5px;">✕</button></span>
+                <span style="white-space:nowrap;">$${item.precio.toFixed(2)} <button onclick="carrito.splice(${i},1);renderCarrito()" style="border:none;background:none;color:#ccc;padding:0 5px;">✕</button></span>
             </div>`).join('');
 
         const subtotal = carrito.reduce((acc, item) => acc + item.precio, 0);
@@ -854,7 +792,7 @@
             return;
         }
 
-        const num = tieneSpa ? "5219841862451" : "5219841862451";
+        const num = tieneSpa ? "5219981960490" : "5219841870476";
         
         let tipoOrden = "ORDEN";
         if (tieneSpa) {
@@ -881,6 +819,145 @@
         const target = btns.find(b => b.innerText.includes(tipo)) || btns.find(b => b.getAttribute('data-cat') === tipo);
         if(target) target.click();
         window.scrollTo({ top: 150, behavior: 'smooth' });
+    }
+
+    /* --- LÓGICA LOGÍSTICA DEL ASISTENTE DE IA DEL RESORT --- */
+    function toggleAIChat() {
+        const win = document.getElementById('aiChatWindow');
+        win.classList.toggle('open');
+        
+        if (win.classList.contains('open') && !chatIniciado) {
+            appendAIBubble(translations[currentLang].aiWelcome, 'bot');
+            chatIniciado = true;
+        }
+    }
+
+    function handleAIKeyPress(e) {
+        if (e.key === 'Enter') sendAIMessage();
+    }
+
+    function sendAIMessage() {
+        const input = document.getElementById('aiInput');
+        const text = input.value.trim();
+        if (!text) return;
+
+        appendAIBubble(text, 'user');
+        input.value = '';
+
+        // Simulación de delay de respuesta fluida de IA
+        setTimeout(() => {
+            const respuesta = generateAIResponse(text);
+            appendAIBubble(respuesta, 'bot');
+        }, 600);
+    }
+
+    function appendAIBubble(text, sender) {
+        const container = document.getElementById('aiMessages');
+        const bubble = document.createElement('div');
+        bubble.className = `ai-msg ${sender}`;
+        bubble.innerText = text;
+        container.appendChild(bubble);
+        container.scrollTop = container.scrollHeight;
+    }
+
+    function generateAIResponse(input) {
+        const cleanInput = input.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        
+        // 1. Intención: Opciones Veganas
+        if (cleanInput.includes('vegan') || cleanInput.includes('vegetariano') || cleanInput.includes('sin carne')) {
+            if (currentLang === 'es') {
+                return "🌱 Contamos con opciones excelentes de origen vegetal, como los 'Tacos de setas al recado negro' ($325) o nuestra exquisita 'Pizza vegetariana del huerto' ($325) y el 'Curry de coco' ($290).";
+            } else {
+                return "🌱 We feature amazing plant-based dishes! Try our 'Recado negro mushroom tacos' ($325), the refreshing 'Vegetarian pizza from our garden' ($325), or the 'Coconut curry' ($290).";
+            }
+        }
+
+        // 2. Intención: Horarios de Servicio
+        if (cleanInput.includes('horario') || cleanInput.includes('hora') || cleanInput.includes('open') || cleanInput.includes('schedule') || cleanInput.includes('cerrado')) {
+            let res = currentLang === 'es' ? "🕒 Horarios de Servicio Room Service:\n" : "🕒 Room Service Operating Hours:\n";
+            for (const [cat, horario] of Object.entries(horariosGlobales)) {
+                res += `• ${cat}: ${horario}\n`;
+            }
+            return res;
+        }
+
+        // 3. Intención: Recomendaciones o Hambre
+        if (cleanInput.includes('recomiend') || cleanInput.includes('sugerenc') || cleanInput.includes('sugerencia') || cleanInput.includes('delicioso') || cleanInput.includes('desayunar') || cleanInput.includes('mejor') || cleanInput.includes('best') || cleanInput.includes('breakfast') || cleanInput.includes('rico')) {
+            if (currentLang === 'es') {
+                return "🌟 Imperdibles de la Casa:\n• Mañana: 'Avocado toast Tulum' ($350) o 'Huevos Doña Ana' ($295).\n• Tarde/Noche: 'Tacos de rib eye al carbón' ($495) o una deliciosa 'Hamburguesa artesanal Ana y José' ($545).\n• Coctel: Nuestra icónica 'Mezcalrita' ($355).";
+            } else {
+                return "🌟 Chef's Recommendations:\n• Morning: 'Avocado toast Tulum' ($350) or traditional 'Doña Ana eggs' ($295).\n• Lunch/Dinner: 'Charcoal-grilled Rib eye tacos' ($495) or our signature 'Ana & José artisanal burger' ($545).\n• Cocktail: The refreshing 'Mezcalrita' ($355).";
+            }
+        }
+
+        // 4. Intención: Spa & Relajación
+        if (cleanInput.includes('spa') || cleanInput.includes('masaje') || cleanInput.includes('massage') || cleanInput.includes('tired') || cleanInput.includes('relax') || cleanInput.includes('cansado') || cleanInput.includes('bienestar')) {
+            if (currentLang === 'es') {
+                return "✨ Menu de Spa Ana y José:\n Hola 😊 ¿Te sientes cansado o con el cuerpo tenso? Ven a que te consintamos un rato en nuestro spa. Te vas a ir relajado y con mucha más energía. ¡Agenda tu cita ahora! 💆‍♀️💆‍♂️. Ofrecemos el masaje relajante 'Apapacho' (50 Min - $2460) y la terapia profunda 'Pixán' (70 Min - $2870). Si reservas ahora por Room Service, ¡te incluimos una mascarilla refrescante de cortesía!";
+            } else {
+                return "✨ Ana y José Spa Menu:\n Hi 😊 Feeling tired or tense? Come and let us pamper you for a while at our spa. You'll leave relaxed and with much more energy. Book your appointment now! 2. We feature our soft-to-medium 'Apapacho' massage (50 Min - $2460) and deep tissue 'Pixán' therapy (70 Min - $2870). Booking through Room Service now includes a complimentary refreshing face mask!";
+            }
+        }
+        // 4. Intención: Recomendaciones o experiencias
+        if (cleanInput.includes('experiencias') || cleanInput.includes('sugerenc') || cleanInput.includes('recommend') || cleanInput.includes('romantic dinner') || cleanInput.includes('cena romántica') || cleanInput.includes('aniversary') || cleanInput.includes('aniversario') || cleanInput.includes('special') || cleanInput.includes('birthday') || cleanInput.includes('sorpresa') || cleanInput.includes('surprise') || cleanInput.includes('cumple') || cleanInput.includes('especial')) {
+            if (currentLang === 'es') {
+                return "🌟 wao, te recomiendo una cena romántica de 4 tiempos en nuestra Cava o una cena bajo las estrellas en la playa:\n• Mañana: 'Avocado toast Tulum' ($350) o 'Huevos Doña Ana' ($295).\n• Tarde/Noche: 'Tacos de rib eye al carbón' ($495) o una deliciosa 'Hamburguesa artesanal Ana y José' ($545).\n• Coctel: Nuestra icónica 'Mezcalrita' ($355).";
+            } else {
+                return "🌟 Wow!!! I recommend a romantic 4-course dinner in our wine cellar or a dinner under the stars on the beach.:\n• Morning: 'Avocado toast Tulum' ($350) or traditional 'Doña Ana eggs' ($295).\n• Lunch/Dinner: 'Charcoal-grilled Rib eye tacos' ($495) or our signature 'Ana & José artisanal burger' ($545).\n• Cocktail: The refreshing 'Mezcalrita' ($355).";
+            }
+        }
+         // 4. Intención: Soporte WiFi
+        if (cleanInput.includes('wifi') || cleanInput.includes('contraseña') || cleanInput.includes('password') || cleanInput.includes('clave') || cleanInput.includes('clue') || cleanInput.includes('red')) {
+            if (currentLang === 'es') {
+                return "🌟 WiFi:\n• La red es: 'Hotel Ana y José' \n• y la contraseña es: WelcometoParadise";
+            } else {
+                return "🌟 WiFi:\n• The Wi-Fi network is: Hotel Ana y José.\n• And the password is: WelcometoParadise";
+            }
+        }
+        // 4. Intención: Redirección Dinámica Automática a Concierge/Recepción
+        if (cleanInput.includes('concierge') || cleanInput.includes('ayuda') || cleanInput.includes('help') || cleanInput.includes('question') || cleanInput.includes('preguntar')) {
+            const numConcierge = "5219841870476"; 
+            const textoWhatsApp = currentLang === 'es' ? 'Hola, solicito el apoyo de un Concierge por favor.' : 'Hello, I need assistance from a Concierge please.';
+            
+            // Disparo automático de WhatsApp tras 1 segundo
+            setTimeout(() => {
+                window.open(`https://wa.me/${numConcierge}?text=${encodeURIComponent(textoWhatsApp)}`, '_blank', 'noopener');
+            }, 1000);
+
+            if (currentLang === 'es') {
+                return "🌟 Es un placer poder apoyarle.\n• Ahora te comunico con su concierge vía WhatsApp de manera automática...";
+            } else {
+                return "🌟 It will be a pleasure to support you.\n• I'm connecting you with your concierge via WhatsApp now...";
+            }
+        }
+        
+        // 5. Intención: Búsqueda dinámica en el arreglo de Platillos
+        let match = null;
+        for (const p of platillos) {
+            const nomES = p.n_es.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            const nomEN = p.n_en.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            
+            if (cleanInput.includes(nomES) || cleanInput.includes(nomEN) || 
+                (nomES.split(' ').some(word => word.length > 4 && cleanInput.includes(word)))) {
+                match = p;
+                break;
+            }
+        }
+
+        if (match) {
+            if (currentLang === 'es') {
+                return `🍽️ ${match.n_es}\n💵 Precio: $${match.p.toFixed(2)} MXN\n📂 Categoría: ${match.c}\n📝 Detalles: ${match.d_es}`;
+            } else {
+                return `🍽️ ${match.n_en}\n💵 Price: $${match.p.toFixed(2)} MXN\n📂 Category: ${match.c}\n📝 Details: ${match.d_en}`;
+            }
+        }
+
+        // 6. Respuesta por defecto estructurada
+        if (currentLang === 'es') {
+            return "Dime qué se te antoja ordenar o si deseas saber los ingredientes de algún platillo (ej. Chilaquiles, Omelette Caribeño, Pizzas, Cocteles o servicios de Spa) y con gusto te doy los detalles.";
+        } else {
+            return "Tell me what you are looking to order or if you want to know about any item's ingredients (e.g., Chilaquiles, Caribbean Omelette, Pizzas, Cocktails, or Spa treatments) and I will gladly provide the details.";
+        }
     }
 
     updateUI();
