@@ -163,7 +163,7 @@
             cerrado: "CERRADO", soloHorario: "Disponible en su horario",
             errDatos: "⚠️ Por favor ingresa nombre y habitación", errCarrito: "⚠️ Tu canasta está vacía",
             aiTitle: "✨ Concierge IA", aiPlaceholder: "Pregúntame sobre el menú o spa...",
-            aiWelcome: "¡Hola! Soy tu Concierge de IA. 🌴 ¿Te gustaría alguna recomendación culinaria, conocer opciones veganas, o reservar una experiencia en nuestro Spa?"
+            aiWelcome: "¡Hola! Soy tu Concierge de IA. 🌴 Bienvenido(a) a nuestro hotel Ana y José, ¿Te gustaría alguna recomendación culinaria, conocer opciones veganas, una experiencia en nuestro Spa o en algo que pueda ayudarte?"
         },
         en: {
             finalizar: "Complete Order", nombre: "Name:", hab: "Room Number:", pago: "Payment Method:",
@@ -175,7 +175,7 @@
             cerrado: "CLOSED", soloHorario: "Available only during hours",
             errDatos: "⚠️ Please enter name and room number", errCarrito: "⚠️ Your cart is empty",
             aiTitle: "✨ AI Concierge", aiPlaceholder: "Ask me about the menu or spa...",
-            aiWelcome: "Hello! I am your AI Concierge. 🌴 Would you like a culinary recommendation, information on vegan options, or to book a Spa treatment?"
+            aiWelcome: "Hello! I am your AI Concierge. 🌴 Welcome to our Ana y José hotel. Would you like a culinary recommendation, to learn about vegan options, an experience at our Spa, or anything else we can help you with?"
         }
     };
 
@@ -792,7 +792,7 @@
             return;
         }
 
-        const num = tieneSpa ? "5219981960490" : "5219841862451";
+        const num = tieneSpa ? "5219981960490" : "521984186245";
         
         let tipoOrden = "ORDEN";
         if (tieneSpa) {
@@ -866,9 +866,9 @@
         // 1. Intención: Opciones Veganas
         if (cleanInput.includes('hola') || cleanInput.includes('como estas') || cleanInput.includes('hello') || cleanInput.includes('hola')) {
             if (currentLang === 'es') {
-                return "🌱 Hola, como estás? Soy tu asistente personal, estoy aquí para ayudarte para que te sientas en casa. Y sí necesitas alguna sugerencia o recomendación para celebrar tus cumpleaños, aniversario o alguna ocasión especial ";
+                return "🌱 Hola, como estás?, Para mí es un placer ayudarte para que te sientas en casa. Y sí necesitas alguna sugerencia o recomendación para celebrar tus cumpleaños, aniversario o alguna ocasión especial ";
             } else {
-                return "🌱 Hi, how are you? I'm your personal assistant, I'm here to help you feel at home. And if you need any suggestions or recommendations for celebrating your birthday, anniversary, or any special occasion.";
+                return "🌱 Hi, how are you?, It's my pleasure to help you. I'm here to help you feel at home. And if you need any suggestions or recommendations for celebrating your birthday, anniversary, or any special occasion.";
             }
         }
 
@@ -917,9 +917,9 @@
         // 4. Intención: Spa & Relajación
         if (cleanInput.includes('spa') || cleanInput.includes('masaje') || cleanInput.includes('massage') || cleanInput.includes('tired') || cleanInput.includes('relax') || cleanInput.includes('cansado') || cleanInput.includes('bienestar')) {
             if (currentLang === 'es') {
-                return "✨ Menu de Spa Ana y José:\n Hola 😊 ¿Te sientes cansado o con el cuerpo tenso? Ven a que te consintamos un rato en nuestro spa. Te vas a ir relajado y con mucha más energía. ¡Agenda tu cita ahora! 💆‍♀️💆‍♂️. Ofrecemos el masaje relajante 'Apapacho' (50 Min - $2460) y la terapia profunda 'Pixán' (70 Min - $2870). Si reservas ahora por Room Service, ¡te incluimos una mascarilla refrescante de cortesía!";
+                return "✨ Menu de Spa Ana y José:\n 😊 ¿Te sientes cansado o con el cuerpo tenso? Ven a que te consintamos un rato en nuestro spa. Te vas a ir relajado y con mucha más energía. ¡Agenda tu cita ahora! 💆‍♀️💆‍♂️. Ofrecemos el masaje relajante 'Apapacho' (50 Min - $2460) y la terapia profunda 'Pixán' (70 Min - $2870). Si reservas ahora por Room Service, ¡te incluimos una mascarilla refrescante de cortesía!";
             } else {
-                return "✨ Ana y José Spa Menu:\n Hi 😊 Feeling tired or tense? Come and let us pamper you for a while at our spa. You'll leave relaxed and with much more energy. Book your appointment now! 2. We feature our soft-to-medium 'Apapacho' massage (50 Min - $2460) and deep tissue 'Pixán' therapy (70 Min - $2870). Booking through Room Service now includes a complimentary refreshing face mask!";
+                return "✨ Ana y José Spa Menu:\n 😊 Feeling tired or tense? Come and let us pamper you for a while at our spa. You'll leave relaxed and with much more energy. Book your appointment now! 2. We feature our soft-to-medium 'Apapacho' massage (50 Min - $2460) and deep tissue 'Pixán' therapy (70 Min - $2870). Booking through Room Service now includes a complimentary refreshing face mask!";
             }
         }
         // 4. Intención: Recomendaciones o experiencias
@@ -978,9 +978,9 @@
 
         // 6. Respuesta por defecto estructurada
         if (currentLang === 'es') {
-            return "Dime qué se te antoja ordenar o si deseas saber los ingredientes de algún platillo (ej. Chilaquiles, Omelette Caribeño, Pizzas, Cocteles o servicios de Spa) y con gusto te doy los detalles.";
+            return "Dime qué se te antoja ordenar o si deseas saber los ingredientes de algún platillo (ej. Chilaquiles, Omelette Caribeño, Pizzas, Cocteles) te invito a conocer nuestro menú de Desayuno, Lunch o Cena y con gusto te doy los detalles.";
         } else {
-            return "Tell me what you are looking to order or if you want to know about any item's ingredients (e.g., Chilaquiles, Caribbean Omelette, Pizzas, Cocktails, or Spa treatments) and I will gladly provide the details.";
+            return "Tell me what you are looking to order or if you want to know about any item's ingredients (e.g., Chilaquiles, Caribbean Omelette, Pizzas, Cocktails) I invite you to explore our Breakfast, Lunch, or Dinner menu and I will gladly provide the details.";
         }
     }
 
